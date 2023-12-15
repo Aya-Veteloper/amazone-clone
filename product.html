@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" />
+    <title>Online Shopping site: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon</title>
+
+    <!--css file-->
+    <link rel="stylesheet" href="style.css" />
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container container-header">
+            <div class="logo-container border-white">
+                <div class="logo"></div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-input" />
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+            </div>
+
+            <div class="language-container border-white">
+                <p>English</p>
+            </div>
+
+            <div class="login-container border-white">
+                <p>Hello,<span>sign in</span></p>
+                <p class="account">Account & Lists</p>
+            </div>
+
+            <div class="cart-container border-white">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+    </header>
+
+    <!--navigation-->
+    <nav class="nav">
+        <div class="container container-nav">
+            <ul class="list-container">
+                <li class="border-white" id="open-nav-sidebar">
+                    <span class="open-nav-slider">
+                        <i class="fa-solid fa-bars"></i>
+                    </span>
+                </li>
+                <li class="border-white listNav" data-value="smartphones">Smartphones</li>
+                <li class="border-white listNav" data-value="sunglasses">Sunglasses</li>
+                <li class="border-white listNav" data-value="womens-watches">Watches</li>
+                <li class="border-white listNav" data-value="womens-dresses">Womens Dresses</li>
+                <li class="border-white listNav" data-value="mens-shirts">Mens Shirts</li>
+                <li class="border-white listNav" data-value="home-decoration">Home Decoration</li>
+                <li class="border-white listNav" data-value="fragrances">Fragrances</li>
+                <li class="border-white listNav" data-value="groceries">Groceries</li>
+                <li class="border-white listNav" data-value="furniture">Furniture</li>
+                <li class="border-white listNav" data-value="skincare">Skincare</li>
+                <li class="border-white listNav" data-value="laptops">Laptops</li>
+                <li class="border-white listNav" data-value="mens-shoes">Mens Shoes</li>
+              
+
+            
+            </ul>
+          
+        </div>
+    </nav>
+
+    <!--sidebar navigation-->
+    <div class="sidebar" id="sidebar-id">
+        <div class="sidebar-left-part">
+            <div class="sidebar-top">
+                <i class="fa-solid fa-circle-user"></i>
+                <h2>Hello, <span>sign in</span></h2>
+            </div>
+            <div class="sidebar-wrap">
+                <div class="sidebar-item">
+                    <h2>Shop By Category</h2>
+                    <p>Mobiles</p>
+                    <p>TV, Electronic</p>
+                    <p> Fashion</p>
+                    <!-- <p>Women's Fashion</p> -->
+                    <!-- <p>See All</p> -->
+                </div>
+                <div class="sidebar-item">
+                    <h2>Help & Settings</h2>
+                    <p>Your Account</p>
+                    <!-- <p>Customer Service</p> -->
+                    <p>Sign in</p>
+                </div>
+            </div>
+        </div>
+        <button id="sidebar-close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+
+
+
+    <!--image slider -->
+    <section>
+        <div class="image-container">
+            <div class="images">
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/71cp9PVuTfL._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/61GnAucagBL._SX3000_.png" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/71qlKqpJnlL._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/71cQMXCLSvL._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/61O72XhcEkL._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/61VuJdpjvaL._SX3000_.jpg" />
+                </div>
+                <div class="image-item">
+                    <img src="https://m.media-amazon.com/images/I/61UrRx+3LLL._SX3000_.jpg" />
+                </div>
+            </div>
+
+            <div class="image-btn-container">
+
+                <button class="slider-btn" id="slide-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="slider-btn" id="slide-btn-right"><i class="fa-solid fa-chevron-right"></i></i></button>
+            </div>
+        </div>
+    </section>
+
+
+    <!--product container card-->
+    <main class="main">
+        <div class="card-product-container container productBackgraound" id="SamProduct">
+       
+        </div>
+    </main>
+
+    <footer>
+        <a href="#" class="footer-title">
+          Back to top
+        </a>
+        <div class="footer-items">
+          <ul>
+            <h2>Get to Know Us</h2>
+            <li>About us</li>
+            <li>Careers</li>
+            <li>Press Release</li>
+            <li>Amazon Science</li>
+          </ul>
+          <ul>
+            <h2>Connect with Us</h2>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+          </ul>
+          <ul>
+            <h2>Make Money with Us</h2>
+            <li>Sell on Amazon</li>
+            <li>Sell under Amazon Accelerator</li>
+            <li>Protect and Build Your Brand</li>
+            <li>Amazon Global Selling</li>
+            <li>Become an Affiliate</li>
+            <li>Fulfillment by Amazon</li>
+            <li>Advertise Your Products</li>
+            <li>Amazon Pay on Merchants</li>
+          </ul>
+          <ul>
+            <h2>Let Us Help You</h2>
+            <li>COVID-19 and Amazon</li>
+            <li>Your Account</li>
+            <li>Return Centre</li>
+            <li>100% Purchase Protection</li>
+            <li>Amazon App Download</li>
+            <li>Help</li>
+          </ul>
+        </div>
+        <div class="footer-items" style="color:white; padding:15px 0"> &copy;1996-2022, Amazon.com, Inc. or its affiliates</div>
+      </footer>
+
+      <script src="javascript.js" type="module"></script>
+      <script src="main.js" ></script>
+      <script>
+
+        let SamProduct = document.querySelector("#SamProduct")
+        let listContainer = document.querySelector(".list-container")
+
+        xhr = new XMLHttpRequest()
+
+        xhr.open("get","product.json")
+
+        xhr.send()
+        data
+        xhr.addEventListener("load",function(){
+            if(xhr.status == 200){
+                data = JSON.parse(xhr.response)
+            }
+        })
+        
+        window.addEventListener("load",function(){
+            let productCategory = localStorage.getItem("productCategory")
+        for(let product of data){
+                    if(product.category == productCategory){
+                        console.log("hjkhk")
+                        SamProduct.innerHTML+=`<div class="card-product one-product">
+                        <h2>${product.title}</h2>
+                        <div class="product-data">
+                            <div class="product-img">
+                                <img
+                                    src=${product.images[0]} />
+                            </div>
+                            <p class="product-description">
+                            ${product.description}
+                            </p>
+                            <p class="product-rating"><span>Rating: </span>${product.rating}</p>
+                            <span class="product-price"><span>Price: </span>${product.price} $</span>
+                        </div>
+                        <button class="add-btn">Add To Cart</button>
+                    </div>`
+                    }
+                }
+            })  
+            
+
+            //when you choose another category in the same page 
+
+            listContainer.addEventListener("click",function(eve){
+          if(eve.target.classList.contains("listNav")){
+          for(let product of data){
+            if(product.category == eve.target.dataset.value){
+                localStorage.setItem("productCategory",product.category)
+                window.location.reload()
+            }
+        }
+    }
+})  
+      </script>
+</body>
+
+</html>
