@@ -1,12 +1,12 @@
 
-
 * {
     box-sizing: border-box;
-}
-
-body {
-    margin: 0;
+    text-decoration: none;
     
+}
+body {
+    margin: 0;  
+    /* scroll-behavior: smooth; */
 }
 
 .header {
@@ -298,7 +298,6 @@ body {
 .main{
     position: relative;
     margin-top: -300px;
- 
 }
 .productBackgraound{
     background-color: rgba(213, 247, 247,0.4);
@@ -316,8 +315,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     max-width: 310px;
-    box-shadow: -10px -0px 20px rgba(196, 240, 240,0.5),
-    50px 50px 20px rgba(196, 240, 240,0.5);
+    box-shadow: 4px 2px 8px 1px rgba(146, 146, 146, 0.854);
     padding: 10px;
     margin-bottom: 30px;
 }
@@ -330,7 +328,10 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-/* for products.html */
+
+/* ///////////  start prodcucr that is in products.html /////// */
+
+
 #SamProduct{
     justify-content: flex-start;
 }
@@ -377,7 +378,7 @@ body {
 
 }
 
-/* for products.html */
+/* ///////////  end prodcucr that is in products.html /////// */
 
 
 
@@ -405,101 +406,86 @@ body {
 }
 
 
-/***
-        Today's deals section
-***/
-.today_deals_container{
-    margin: 30px;
-    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1),
-    2px 2px 5px rgba(0, 0, 0, 0.1);
-    
+/* ////////////////////// top rated start  /////////////////*/
+
+.top-rated{
+    margin: 80px 30px 120px;
+    padding: 0 0 15px;
+    box-shadow: 2px 0px 2px 2px rgb(220, 214, 214);
+   
 }
-.today_deals_heading{
-    display: flex;
-    align-items: center;
-    padding: 2px 20px;
+.top-rated .heading{
+ display: flex;
+ transform: translate(30px,2px);
 }
-.today_deals_heading p a{
-    color:rgb(39, 114, 107);
-    text-decoration: none;
-    padding-left: 20px;
+.top-rated .heading h1{
+    margin-top: 15px;
+    padding: 0;
 }
-.today_deals_heading p a:hover{
-    text-decoration: underline;
+.top-rated .heading .btn-toprated{
+    border: none;
+    background-color: transparent;
+    color: rgb(202, 120, 48);
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.top-rated .heading .btn-toprated:hover{
+    color: rgb(222, 118, 27);
+    font-weight: bold;
 }
 
-.today_deals_product_container{
-    height: 300px;
-    position: relative;
+.top-rated .rated-container{
+ display: flex;
+ text-align: center;
+ overflow: hidden;
+ height: 62vh;
 }
-.today_deals_product_list{
-    display: flex;
-    overflow: hidden;
-
+.top-rated .rated-container .rated-product{
+    margin-left: 15px;
+    min-width: 23%;
+    animation-name: rayedSlide;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+   }
+.rated-product .product-rating,.rated-product .product-price{
+    background-color: rgb(164, 28, 28);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    align-self: center;
+    color: white;
 }
-.today_deals_product_item{
-    min-width: 250px;
-    height: 250px;
-    padding: 0px 10px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(0%);
-    transition: transform 1s;
+.rated-product .product-rating span,.rated-product .product-price span{
+    color: white;
 }
-.todayDeals_product_image{
-    height: 200px;
-    width: 210px;
+.rated-container .rated-product .product-data{
+    box-shadow: 2px 2px 5px 1px rgb(181, 180, 180);
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-content: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+
 }
-.today_deals_product_item img{
-    width: 100%;
-    height: 100%;
-    background-color: red;
-}
-.today_deals_product_item p{
-    justify-self: flex-end;
+.rated-container .rated-product img{
+    min-width: 80%;
+    min-height: 180px;
+    border-radius: 15px;
 }
 
-.discount_Contaienr a{
-    padding: 5px 10px;
-    font-size: 14px;
-    color:rgb(211, 30, 84);
-    text-decoration: none;
-}
-.discount_Contaienr a:first-child{
-    background-color: rgb(211, 30, 84);
-    padding: 5px 10px;
-    color:white;
-    font-weight: 550;
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 12px;
+@keyFrames rayedSlide{
+    0%{transform: translateX(-400%)}
+    50%{transform:translateX(0)}
+    100%{transform: translateX(-400%)}
 }
 
-.today_deals_btn_container{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
-    z-index: 10;
-}
-.today_deal_btn{
-    padding: 40px 10px;
-    font-size: 40px;
-    border: none;
-    outline: none;
-    background-color: rgb(255,255,255,0.4);
-}
+/*////////////////// top ratted end  ////////////////////////// */
 
 
-/* Footer */
+/* ////////////////////////// start Footer ////////////////////////*/
+
 .footer-title {
     display: flex;
    
@@ -537,3 +523,7 @@ body {
     text-decoration: underline;
   }
  
+
+
+
+  
