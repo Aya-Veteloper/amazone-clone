@@ -559,3 +559,15 @@ body {
 .footer-items li:hover {
     text-decoration: underline;
 }
+
+
+/* Results */
+
+#searchResults {
+    display: block;
+    padding: 50px;
+}
+
+.result-card {
+    display: flex;
+}

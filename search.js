@@ -59,7 +59,7 @@ function renderSearchResults(searchResults) {
 
 function createResultCard(result) {
   const card = document.createElement("div");
-  card.classList.add("result-card");
+  card.classList.add("card-product-container");
   card.innerHTML = `
   <div class="card-product one-product" id=${result.id}>
                 <h2>${result.title}</h2>
