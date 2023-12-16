@@ -26,10 +26,13 @@
             </div>
 
             <div class="search-container">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
                 <input type="text" class="search-input" />
-                <div class="search-icon">
+                <button class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+                </button>
 
             </div>
 
@@ -97,7 +100,7 @@
                     <p>TV, Electronic</p>
                     <p> Fashion</p>
                 </div>
-             
+
                 <div class="sidebar-item">
                     <h2>Help & Settings</h2>
                     <p>Your Account</p>
@@ -109,6 +112,11 @@
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
+
+
+    <!-- results -->
+
+    <div id="searchResults" style="display: none;"></div>
 
 
 
@@ -448,7 +456,7 @@
                 <button class="btn-toprated">See More</button>
             </div>
             <div class="rated-container">
-                
+
             </div>
         </section>
     </main>
@@ -539,19 +547,19 @@
         })
 
 
-        topRatedBtn.addEventListener("click",function(){
-            localStorage.setItem("productCategory","top rated")
-            window.location.href ='product.html'
+        topRatedBtn.addEventListener("click", function () {
+            localStorage.setItem("productCategory", "top rated")
+            window.location.href = 'product.html'
         })
 
-        
-        
-        window.addEventListener("load",function(){
+
+
+        window.addEventListener("load", function () {
             let count = 0
-            for(let product of data){
-                if(product.rating >= 4.7){
+            for (let product of data) {
+                if (product.rating >= 4.7) {
                     count++
-                    topRatedContainer.innerHTML +=`<div class="rated-product">
+                    topRatedContainer.innerHTML += `<div class="rated-product">
                     <h4>${product.title}</h4>
                     <div class="product-data">
                         <div class="product-img">
@@ -562,18 +570,20 @@
                     </div>
                 </div>`
                 }
-                if(count >= 8){
+                if (count >= 8) {
                     break
                 }
             }
         })
 
-        listTopRated.addEventListener("click",function(){
+        listTopRated.addEventListener("click", function () {
             topRatedSection.scrollIntoView({
-                behavior:"smooth"
+                behavior: "smooth"
             })
         })
-</script>
+    </script>
+
+    <script src="search.js"></script>
 
 </body>
 
