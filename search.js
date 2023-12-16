@@ -42,7 +42,7 @@ function renderSearchResults(searchResults) {
   console.log(searchResultsContainer);
   section.style.display = "none";
   main.style.display = "none";
-  searchResultsContainer.style.display = "block";
+  searchResultsContainer.style.display = "flex";
   searchResultsContainer.innerHTML = "";
 
   if (searchResults.length === 0) {
@@ -59,9 +59,9 @@ function renderSearchResults(searchResults) {
 
 function createResultCard(result) {
   const card = document.createElement("div");
-  card.classList.add("card-product-container");
+  card.classList.add("resultCard");
   card.innerHTML = `
-  <div class="card-product one-product" id=${result.id}>
+  <div id=${result.id}>
                 <h2>${result.title}</h2>
                 <div class="product-data">
                     <div class="product-img">                                                                
