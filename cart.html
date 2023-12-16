@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <a href="">Deselect all items</a>
+        <p>Price</p>
+        <ul id="cart-list">
+            <!-- You Can add by javascript -->
+            <li>
+                <div class="item">
+
+                </div>
+            </li>
+
+        </ul>
+        <div class="checkout">
+            <button>Proceed to checkout</button>
+            <p>Total: <span id="total-price">$195.95</span></p>
+        </div>
+    </div>
+    </div>
+    <script>
+        const item = document.querySelector('.item');
+        window.addEventListener("load", function () {
+            const productID = JSON.parse(localStorage.getItem("productCardID"))
+            //console.log(productID);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "product.json", true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+
+                    // Filter products based on the search term
+                    const productDetails = data.filter((product) => {
+                        return product.id == productID;
+                    });
+
+                    //console.log(productDetails[0]);
+
+                    ShowInCart(productDetails[0]);
+                }
+            }
+            xhr.send();
+        })
+
+        function ShowInCart(product) {
+            item.innerHTML = "";
+
+            if (product) {
+                item.innerHTML = `<img src=${product.images} alt="">
+                    <div class="item-details">
+
+                        <h3>${product.title}</h3>
+                        <p>In Stock</p>
+                        <select name="" id="">
+                            <option value="1">Qty:1</option>
+                            <option value="2">Qty:2</option>
+                            <option value="3">Qty:3</option>
+                            <option value="4">Qty:4</option>
+                            <option value="5">Qty:5</option>
+                        </select>
+                        <button>Delete</button>
+                        <button>Save for later</button>
+                    </div>
+                    <div class="item-price">
+                        <p>$${product.price}</p>
+                        <div class="coupon">
+                            <p>Save 10%</p>
+                            <a href="">Clip Coupon</a>
+                        </div>
+                    </div>`;
+            } else {
+                item.innerHTML = "<p>Cart is empty.</p>";
+            }
+        }
+    </script>
+</body>
+
+</html>

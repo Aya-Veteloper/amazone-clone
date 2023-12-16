@@ -119,15 +119,22 @@ body {
 
 
 /****cart container***/
-.cart-container {
+.cart-button {
     font-size: 1.1rem;
     display: flex;
-
+    background-color: rgb(19, 25, 33);
+    color: white;
 }
 
-.cart-container i {
+.cart-button i {
     font-size: 1rem;
+    color: white;
+}
 
+.cart-button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 /**************************************navigation*****************************************/

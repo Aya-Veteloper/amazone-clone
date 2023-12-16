@@ -42,9 +42,9 @@
                 <p class="account">Account & Lists</p>
             </div>
 
-            <div class="cart-container border-white">
+            <div class="cart-button border-white">
                 <i class="fa-solid fa-cart-shopping"></i>
-                Cart
+                <a href="cart.html">Cart</a>
             </div>
         </div>
     </header>
@@ -220,8 +220,9 @@
         window.addEventListener("load", function () {
             let productCategory = localStorage.getItem("productCategory")
             for (let product of data) {
+
                 if (product.category == productCategory) {
-                    SamProduct.innerHTML += `<div class="card-product one-product">
+                    SamProduct.innerHTML += `<div class="card-product one-product" id=${product.id}>
                         <h2>${product.title}</h2>
                         <div class="product-data">
                             <div class="product-img">
@@ -237,8 +238,8 @@
                         <button class="add-btn">Add To Cart</button>
                     </div>`
                 }
-                else if(productCategory == "top rated" && product.rating >=4.7){
-                    SamProduct.innerHTML +=`<div class="card-product one-product">
+                else if (productCategory == "top rated" && product.rating >= 4.7) {
+                    SamProduct.innerHTML += `<div class="card-product one-product" id=${product.id}>
                         <h2>${product.title}</h2>
                         <div class="product-data">
                             <div class="product-img">
@@ -254,8 +255,22 @@
                         <button class="add-btn">Add To Cart</button>
                     </div>`
                 }
-                
+
+
+
             }
+
+            //Send Product ID to LocalStorage
+
+            const addToCartBtn = [...document.getElementsByClassName('add-btn')];
+            //console.log(addToCartBtn)
+            addToCartBtn.forEach(btn => btn.addEventListener("click", function (event) {
+                const productCardID = event.target.parentElement.id;
+                //console.log(productCardID);
+                localStorage.setItem("productCardID", JSON.stringify(productCardID));
+            }))
+
+
         })
 
 
@@ -270,7 +285,7 @@
                     }
                 }
             }
-        })  
+        })
 
         /// when you click on see more button in top rated
 
