@@ -55,10 +55,9 @@
         })
 
         function ShowInCart(product) {
-            item.innerHTML = "";
 
             if (product) {
-                item.innerHTML = `<img src=${product.images} alt="">
+                item.innerHTML += `<img src=${product.images} alt="">
                     <div class="item-details">
 
                         <h3>${product.title}</h3>
