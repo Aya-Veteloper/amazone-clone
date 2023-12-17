@@ -88,19 +88,16 @@
             <div class="sidebar-wrap">
                 <div class="sidebar-item">
                     <h2>Shop By Category</h2>
-                    <p>Mobiles</p>
-                    <p>TV, Electronic</p>
-                    <p> Fashion</p>
-                    <!-- <p>Women's Fashion</p> -->
-                    <!-- <p>See All</p> -->
+                    <p class="side" data-value="smartphones">Smartphones</p>
+                    <p class="side" data-value="laptops"> Laptops</p>
+                    <p class="side" data-value="mens-watches">Watches</p>
                 </div>
                 <div class="sidebar-item">
-                    <h2>Help & Settings</h2>
-                    <p>Your Account</p>
-                    <!-- <p>Customer Service</p> -->
+                    <h2>Help</h2>
+                    <p><a href="profile.html">Your profile</a></p>
                     <p>Sign in</p>
                 </div>
-            </div>
+            </div>>
         </div>
         <button id="sidebar-close">
             <i class="fa-solid fa-xmark"></i>
@@ -115,28 +112,34 @@
         <div class="image-container">
             <div class="images">
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71cp9PVuTfL._SX3000_.jpg" />
+                    <img src="https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61GnAucagBL._SX3000_.png" />
+                    <img
+                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71qlKqpJnlL._SX3000_.jpg" />
+                    <img
+                        src="https://images.pexels.com/photos/696645/pexels-photo-696645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71cQMXCLSvL._SX3000_.jpg" />
+                    <img src="https://images.pexels.com/photos/6177678/pexels-photo-6177678.jpeg" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg" />
+                    <img
+                        src="https://media.istockphoto.com/id/1305033092/photo/floating-womens-sunglasses-on-a-yellow-background.jpg?s=1024x1024&w=is&k=20&c=GbQsx9zb4nhOQTuabfR9fc3DRKk7SgiF_ihJXkd5Tp0=" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61O72XhcEkL._SX3000_.jpg" />
+                    <img
+                        src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61VuJdpjvaL._SX3000_.jpg" />
+                    <img
+                        src="https://media.istockphoto.com/id/1399637805/photo/top-view-flat-lay-of-a-set-of-perfume-bottles-on-a-beige-blank-background.jpg?s=1024x1024&w=is&k=20&c=Pmqkh3m_4BNAwMqu1iMvUjsj-szGRV4n4Oau17Qif94=" />
                 </div>
                 <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61UrRx+3LLL._SX3000_.jpg" />
+                    <img
+                        src="https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 </div>
             </div>
 
@@ -204,6 +207,7 @@
 
         let SamProduct = document.querySelector("#SamProduct")
         let listContainer = document.querySelector(".list-container")
+        let SideContainer = document.querySelector(".sidebar-item")
 
         xhr = new XMLHttpRequest()
 
@@ -282,6 +286,17 @@
                     if (product.category == eve.target.dataset.value) {
                         localStorage.setItem("productCategory", product.category)
                         window.location.reload()
+                    }
+                }
+            }
+        })
+
+        SideContainer.addEventListener("click", function (eve) {
+            if (eve.target.classList.contains("side")) {
+                for (let product of data) {
+                    if (product.category == eve.target.dataset.value) {
+                        localStorage.setItem("productCategory", eve.target.dataset.value)
+                        window.location.href = "product.html"
                     }
                 }
             }
