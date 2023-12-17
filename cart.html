@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cart.css">
+
     <title>Cart</title>
 </head>
 
@@ -15,12 +15,6 @@
         <p>Price</p>
         <ul id="cart-list">
             <!-- You Can add by javascript -->
-            <li>
-                <div class="item">
-
-                </div>
-            </li>
-
         </ul>
         <div class="checkout">
             <button>Proceed to checkout</button>
@@ -29,7 +23,7 @@
     </div>
     </div>
     <script>
-        const item = document.querySelector('.item');
+        const cartList = document.querySelector('#cart-list');
         window.addEventListener("load", function () {
             const productID = JSON.parse(localStorage.getItem("productCardID"))
             //console.log(productID);
@@ -41,10 +35,15 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     const data = JSON.parse(xhr.responseText);
 
+                    const cart = []
                     // Filter products based on the search term
                     const productDetails = data.filter((product) => {
                         return product.id == productID;
                     });
+
+                    if (productDetails[0]) {
+                        cart.push(productDetails[0].id);
+                    }
 
                     //console.log(productDetails[0]);
 
@@ -57,7 +56,8 @@
         function ShowInCart(product) {
 
             if (product) {
-                item.innerHTML += `<img src=${product.images} alt="">
+                const item = document.createElement("li");
+                item.innerHTML = `<img src=${product.images} alt="">
                     <div class="item-details">
 
                         <h3>${product.title}</h3>
@@ -79,11 +79,14 @@
                             <a href="">Clip Coupon</a>
                         </div>
                     </div>`;
+                cartList.appendChild(item);
             } else {
-                item.innerHTML = "<p>Cart is empty.</p>";
+                cartList.innerHTML = "<p>Cart is empty.</p>";
             }
         }
     </script>
+
+    <link rel="stylesheet" href="cart.css">
 </body>
 
 </html>
