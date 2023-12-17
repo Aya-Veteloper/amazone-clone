@@ -74,7 +74,7 @@
                             <option value="4">Qty:4</option>
                             <option value="5">Qty:5</option>
                         </select>
-                        <button>Delete</button>
+                        <button onclick="deleteItem('${product.id}')">Delete</button>
                         <button>Save for later</button>
                     </div>
                     <div class="item-price">
@@ -123,6 +123,15 @@
 
             // Update the total price in the UI
             totalPriceSpan.textContent = `${totalPrice.toFixed(2)}`;
+        }
+
+        function deleteItem(productId) {
+            // Remove the item from the DOM
+            const itemToRemove = document.getElementById(`quantity-${productId}`).closest('li');
+            itemToRemove.remove();
+
+            // Update the total price variable
+            calculateTotalPrice();
         }
 
     </script>
