@@ -25,8 +25,6 @@
     <script>
         const cartList = document.querySelector('#cart-list');
         window.addEventListener("load", function () {
-            const productID = JSON.parse(localStorage.getItem("productCardID"))
-            //console.log(productID);
 
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "product.json", true);
@@ -35,19 +33,20 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     const data = JSON.parse(xhr.responseText);
 
+                    console.log(data);
                     const cart = []
+
+                    const productIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
+                    console.log(productIDs)
+
+                    const productDetails = data.filter(product => productIDs.includes(product.id.toString()));
+                    console.log(productDetails);
+
                     // Filter products based on the search term
-                    const productDetails = data.filter((product) => {
-                        return product.id == productID;
+                    productDetails.forEach(product => {
+                        cart.push(product);
+                        ShowInCart(product);
                     });
-
-                    if (productDetails[0]) {
-                        cart.push(productDetails[0].id);
-                    }
-
-                    //console.log(productDetails[0]);
-
-                    ShowInCart(productDetails[0]);
                 }
             }
             xhr.send();
@@ -80,10 +79,62 @@
                         </div>
                     </div>`;
                 cartList.appendChild(item);
-            } else {
-                cartList.innerHTML = "<p>Cart is empty.</p>";
             }
         }
+
+        // const cartList = document.querySelector('#cart-list');
+
+        // window.addEventListener("load", function () {
+        //     // Retrieve an array of product IDs from local storage
+        //     const productIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
+
+        //     // Fetch the product data
+        //     fetch("product.json")
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             const cart = [];
+
+        //             console.log(data);
+        //             // Filter products based on the stored product IDs
+        //             const productDetails = data.filter(product => productIDs.includes(product.id));
+        //             console.log(productDetails);
+
+        //             // Display products in the cart
+        //             productDetails.forEach(product => {
+        //                 cart.push(product);
+        //                 ShowInCart(product);
+        //             });
+        //         })
+        //         .catch(error => console.error('Error fetching product data:', error));
+        // });
+
+        // function ShowInCart(product) {
+        //     const item = document.createElement("li");
+        //     item.innerHTML = `<img src=${product.images} alt="">
+        // <div class="item-details">
+        //     <h3>${product.title}</h3>
+        //     <p>In Stock</p>
+        //     <select name="" id="">
+        //         <option value="1">Qty:1</option>
+        //         <option value="2">Qty:2</option>
+        //         <option value="3">Qty:3</option>
+        //         <option value="4">Qty:4</option>
+        //         <option value="5">Qty:5</option>
+        //     </select>
+        //     <button>Delete</button>
+        //     <button>Save for later</button>
+        // </div>
+        // <div class="item-price">
+        //     <p>$${product.price}</p>
+        //     <div class="coupon">
+        //         <p>Save 10%</p>
+        //         <a href="">Clip Coupon</a>
+        //     </div>
+        // </div>`;
+        //     cartList.appendChild(item);
+        // }
+
+
     </script>
 
     <link rel="stylesheet" href="cart.css">

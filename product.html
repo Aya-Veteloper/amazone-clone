@@ -270,8 +270,13 @@
             //console.log(addToCartBtn)
             addToCartBtn.forEach(btn => btn.addEventListener("click", function (event) {
                 const productCardID = event.target.parentElement.id;
-                //console.log(productCardID);
-                localStorage.setItem("productCardID", JSON.stringify(productCardID));
+                const storedProductIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
+                console.log(storedProductIDs);
+
+                // Add the new product ID to the array
+                storedProductIDs.push(productCardID);
+                // Save the updated array back to local storage
+                localStorage.setItem("productCardIDs", JSON.stringify(storedProductIDs));
             }))
 
 
