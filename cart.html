@@ -45,13 +45,11 @@
                     const productDetails = data.filter(product => productIDs.includes(product.id.toString()));
                     console.log(productDetails);
 
-                    // Filter products based on the search term
                     productDetails.forEach(product => {
                         cart.push(product);
                         ShowInCart(product);
                     });
 
-                    // Calculate initial total price
                     calculateTotalPrice();
                 }
             }
@@ -86,7 +84,6 @@
                     </div>`;
                 cartList.appendChild(item);
 
-                // Set the event listener for the quantity dropdown change
                 const quantityDropdown = document.getElementById(`quantity-${product.id}`);
 
                 console.log(quantityDropdown)
@@ -94,7 +91,6 @@
                     updateTotalPrice(product.id, product.price);
                 });
 
-                // Initialize total price
                 updateTotalPrice(product.id, product.price);
             }
         }
@@ -113,7 +109,6 @@
         }
 
         function calculateTotalPrice() {
-            // Initialize total price
             totalPrice = 0;
 
             // Iterate through all items and update the total price

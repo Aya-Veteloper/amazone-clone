@@ -53,8 +53,6 @@ function renderSearchResults(searchResults) {
       searchResultsContainer.appendChild(resultCard);
     });
   }
-
-  //window.location.href = "results.html";
 }
 
 function createResultCard(result) {

@@ -37,10 +37,11 @@
                 <p>English</p>
             </div>
 
-            <div class="login-container border-white">
-                <p>Hello,<span>sign in</span></p>
-                <p class="account">Account & Lists</p>
-            </div>
+            <a href="sign in.html" style="color: white;">
+                <div class="login-container border-white">
+                    <p>Hello, <span id="success-sign">sign in</span></p>
+                </div>
+            </a>
 
             <div class="cart-button border-white">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -379,74 +380,6 @@
             </div>
         </div>
 
-
-
-        <!--today's deals -->
-        <!-- <section class="today_deals_container">
-            <div class="today_deals_heading">
-                <h1>Today's Deals</h1>
-                <p><a href=" ">See all deals</a></p>
-            </div>
-
-            <div class="today_deals_product_container">
-                <div class="today_deals_btn_container">
-                    <button class="today_deal_btn" id="today_deal_btn_prev">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </button>
-                    <button class="today_deal_btn" id="today_deal_btn_next">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </button>
-                </div>
-
-                <div class="today_deals_product_list">
-                    <div class="today_deals_product_item">
-                        <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg" />
-                        <div class="discount_Contaienr">
-                            <a href=" ">Up to 52% off</a>
-                            <a href=" ">Deal of the day</a>
-                        </div>
-                        <p>adidas and Campus Footwear</p>
-                    </div>
-
-                    <div class="today_deals_product_item">
-                        <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg" />
-                        <div class="discount_Contaienr">
-                            <a href=" ">Up to 52% off</a>
-                            <a href=" ">Deal of the day</a>
-                        </div>
-                        <p>adidas and Campus Footwear</p>
-                    </div>
-
-                    <div class="today_deals_product_item">
-                        <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg" />
-                        <div class="discount_Contaienr">
-                            <a href=" ">Up to 52% off</a>
-                            <a href=" ">Deal of the day</a>
-                        </div>
-                        <p>adidas and Campus Footwear</p>
-                    </div>
-
-                    <div class="today_deals_product_item">
-                        <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg" />
-                        <div class="discount_Contaienr">
-                            <a href=" ">Up to 52% off</a>
-                            <a href=" ">Deal of the day</a>
-                        </div>
-                        <p>adidas and Campus Footwear</p>
-                    </div>
-
-                    <div class="today_deals_product_item">
-                        <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg" />
-                        <div class="discount_Contaienr">
-                            <a href=" ">Up to 52% off</a>
-                            <a href=" ">Deal of the day</a>
-                        </div>
-                        <p>adidas and Campus Footwear</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
         <section class="top-rated" id="topRatedSection">
             <div class="heading">
                 <h1>Top Rated</h1>
@@ -513,6 +446,7 @@
         let topRatedSection = document.querySelector("#topRatedSection")
         let listTopRated = document.querySelector(".list-Top-Rated")
         let SideTopRated = document.querySelector(".Side-Top-Rated")
+        let successSign = document.getElementById("success-sign")
 
         let xhr = new XMLHttpRequest()
         xhr.open("get", "product.json")
@@ -565,6 +499,13 @@
 
 
         window.addEventListener("load", function () {
+
+            //////////////////////////////  currentUser       ////////////////////////////
+            if (localStorage.getItem("submit") == "correct") {
+                successSign.innerHTML = `${localStorage.getItem("currentUser")}`
+            }
+
+            /////////////////////////////////////////////////////////
             let count = 0
             for (let product of data) {
                 if (product.rating >= 4.7) {
