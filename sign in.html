@@ -259,14 +259,14 @@
         /////////////////////////////////////////////////////////////////////////////////
 
         let usersdata = JSON.parse(localStorage.getItem("users"))
-        console.log(usersdata)
         for (let user of usersdata) {
-            if (user.email === email && user.password === password) {
+            if (user.email == email && user.password == password) {
                 window.location.href = "index.html"
                 localStorage.setItem("currentUser", user.fullName)
+                localStorage.setItem("currentEmail", JSON.stringify(user.email))
+
                 // localStorage.setItem("submit","correct")
-            }
-            else {
+            } else {
                 alert("User is not found. Please sign up first.")
             }
         }

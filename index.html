@@ -96,7 +96,7 @@
                 <div class="sidebar-item">
                     <h2>Help</h2>
                     <p><a href="profile.html">Your profile</a></p>
-                    <p>Sign in</p>
+                    <button id="signBtn">Sign In</button>
                 </div>
             </div>
         </div>
@@ -537,6 +537,15 @@
                 behavior: "smooth"
             })
         })
+    </script>
+
+    <!-- Log Out Script -->
+    <script>
+        const logOutBtn = document.getElementById("signBtn");
+
+        logOutBtn.addEventListener("click", function () {
+            window.location.href = "sign up.html";
+        });
     </script>
 
 
