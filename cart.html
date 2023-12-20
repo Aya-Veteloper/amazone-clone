@@ -104,7 +104,7 @@
 
             totalPriceElement.textContent = totalPrice.toFixed(2);
 
-            // Update the total price variable
+            // Update the total price
             calculateTotalPrice();
         }
 
@@ -116,7 +116,7 @@
                 totalPrice += parseFloat(itemPriceElement.textContent.replace('$', ''));
             });
 
-            // Update the total price in the UI
+            // Update the total price
             totalPriceSpan.textContent = `${totalPrice.toFixed(2)}`;
         }
 
@@ -128,22 +128,19 @@
             const itemToRemove = document.getElementById(`quantity-${productId}`).closest('li');
             itemToRemove.remove();
 
-            // Update the total price variable
             calculateTotalPrice();
         }
 
         function removeFromLocalStorage(productId) {
-            // Retrieve the existing product IDs from local storage
             const productIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
 
-            // Find the index of the product ID to be removed
             const indexToRemove = productIDs.indexOf(productId.toString());
 
             // If the product ID is found, remove it from the array
             if (indexToRemove !== -1) {
                 productIDs.splice(indexToRemove, 1);
 
-                // Update the product IDs in local storage
+                // Update local storage
                 localStorage.setItem("productCardIDs", JSON.stringify(productIDs));
             }
         }

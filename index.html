@@ -37,11 +37,11 @@
                 <p>English</p>
             </div>
 
-            <a href="sign in.html" style="color: white;">
                 <div class="login-container border-white">
-                    <p>Hello, <span id="success-sign">sign in</span></p>
+                    <p>Hello, <span class="success-sign"></span></p>
+                    <!-- <p class="account">Account & Lists</p> -->
                 </div>
-            </a>
+        
 
             <div class="cart-button border-white">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -83,7 +83,7 @@
         <div class="sidebar-left-part">
             <div class="sidebar-top">
                 <i class="fa-solid fa-circle-user"></i>
-                <h2>Hello, <span>sign in</span></h2>
+                <h2>Hello, <span class="success-sign">sign in</span></h2>
             </div>
             <div class="sidebar-wrap">
                 <div class="sidebar-item">
@@ -96,7 +96,7 @@
                 <div class="sidebar-item">
                     <h2>Help</h2>
                     <p><a href="profile.html">Your profile</a></p>
-                    <button id="signBtn">Sign In</button>
+                    <p id="sing-out">sign out</p>
                 </div>
             </div>
         </div>
@@ -118,41 +118,8 @@
         <div class="image-container">
             <div class="images">
                 <div class="image-item">
-                    <img src="https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg" />
+                    <img name="slide">
                 </div>
-                <div class="image-item">
-                    <img
-                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                </div>
-                <div class="image-item">
-                    <img
-                        src="https://images.pexels.com/photos/696645/pexels-photo-696645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                </div>
-                <div class="image-item">
-                    <img src="https://images.pexels.com/photos/6177678/pexels-photo-6177678.jpeg" />
-                </div>
-                <div class="image-item">
-                    <img
-                        src="https://media.istockphoto.com/id/1305033092/photo/floating-womens-sunglasses-on-a-yellow-background.jpg?s=1024x1024&w=is&k=20&c=GbQsx9zb4nhOQTuabfR9fc3DRKk7SgiF_ihJXkd5Tp0=" />
-                </div>
-                <div class="image-item">
-                    <img
-                        src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                </div>
-                <div class="image-item">
-                    <img
-                        src="https://media.istockphoto.com/id/1399637805/photo/top-view-flat-lay-of-a-set-of-perfume-bottles-on-a-beige-blank-background.jpg?s=1024x1024&w=is&k=20&c=Pmqkh3m_4BNAwMqu1iMvUjsj-szGRV4n4Oau17Qif94=" />
-                </div>
-                <div class="image-item">
-                    <img
-                        src="https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                </div>
-            </div>
-
-            <div class="image-btn-container">
-
-                <button class="slider-btn" id="slide-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="slider-btn" id="slide-btn-right"><i class="fa-solid fa-chevron-right"></i></i></button>
             </div>
         </div>
     </section>
@@ -379,7 +346,6 @@
                 <button class="card-product-btn" value="mens-shoes">see more</button>
             </div>
         </div>
-
         <section class="top-rated" id="topRatedSection">
             <div class="heading">
                 <h1>Top Rated</h1>
@@ -435,7 +401,7 @@
     </footer>
 
     <script src="search.js"></script>
-    <script src="javascript.js" type="module"></script>
+    <script src="javascript.js"></script>
 
     <script>
         let categoryContainer = document.querySelector(".card-product-container")
@@ -446,8 +412,10 @@
         let topRatedSection = document.querySelector("#topRatedSection")
         let listTopRated = document.querySelector(".list-Top-Rated")
         let SideTopRated = document.querySelector(".Side-Top-Rated")
-        let successSign = document.getElementById("success-sign")
-
+        let successSign = document.getElementsByClassName("success-sign")[0]
+        let successSignSide = document.getElementsByClassName("success-sign")[1]
+        let singOut = document.getElementById("sing-out")
+        
         let xhr = new XMLHttpRequest()
         xhr.open("get", "product.json")
         xhr.send()
@@ -496,14 +464,60 @@
             window.location.href = 'product.html'
         })
 
+        ///////////////////////////////////////// hello sign on click ///////////////////
+       
+        successSign.addEventListener("click",function(){
+            if(successSign.innerHTML == "sign in"){
+                window.location.href = "sign in.html"
+                singOut.innerHTML = "sign in"
+
+            }else{
+                window.location.href = "profile.html"
+                singOut.innerHTML = "sign out"
+            }
+            
+        })
+       
+
+        
+
+        //////////////////// currentUser sign out //////////////////
+
+        singOut.addEventListener("click",function(){
+            localStorage.setItem("currentUser","sign in")
+            window.location.href="index.html"
+        })
+
+         //////////////////// currentUser sign out //////////////////
 
 
+
+         
         window.addEventListener("load", function () {
 
-            //////////////////////////////  currentUser       ////////////////////////////
-            if (localStorage.getItem("submit") == "correct") {
-                successSign.innerHTML = `${localStorage.getItem("currentUser")}`
+             //////////////////////////////  currentUser       ////////////////////////////
+           
+                successSign.innerHTML=`${localStorage.getItem("currentUser")}`
+                successSignSide.innerHTML=`${localStorage.getItem("currentUser")}`
+
+                if(successSign.innerHTML == "sign in"){
+                singOut.innerHTML = "sign in"
+
+            }else{
+                singOut.innerHTML = "sign out"
+
             }
+
+                /////////////////////   /////////////////////////
+            singOut.addEventListener("click",function(){
+            if(successSign.innerHTML == "sign in"){
+                window.location.href = "sign in.html"
+
+            }else{
+                window.location.href = "index.html"
+                
+            }
+        })
 
             /////////////////////////////////////////////////////////
             let count = 0
@@ -537,15 +551,6 @@
                 behavior: "smooth"
             })
         })
-    </script>
-
-    <!-- Log Out Script -->
-    <script>
-        const logOutBtn = document.getElementById("signBtn");
-
-        logOutBtn.addEventListener("click", function () {
-            window.location.href = "sign up.html";
-        });
     </script>
 
 
