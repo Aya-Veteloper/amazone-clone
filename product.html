@@ -280,9 +280,12 @@
                 const productCardID = event.target.parentElement.id;
                 const storedProductIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
                 // Add the new product ID to the array
-                storedProductIDs.push(productCardID);
+                const currentUserr = localStorage.getItem('currentUser');
+                storedProductIDs.push({ currentuser: currentUserr, productID: productCardID });
+                console.log(storedProductIDs)
                 // Save the updated array back to local storage
                 localStorage.setItem("productCardIDs", JSON.stringify(storedProductIDs));
+
             }))
 
 

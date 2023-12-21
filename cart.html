@@ -42,13 +42,30 @@
                     const productIDs = JSON.parse(localStorage.getItem("productCardIDs")) || [];
                     console.log(productIDs)
 
-                    const productDetails = data.filter(product => productIDs.includes(product.id.toString()));
-                    console.log(productDetails);
+                    const currentUser = localStorage.getItem("currentUser");
+                    console.log(currentUser);
 
-                    productDetails.forEach(product => {
-                        cart.push(product);
-                        ShowInCart(product);
-                    });
+
+                    for (let i = 0; i < productIDs.length; i++) {
+                        const currentProduct = productIDs[i]
+                        const secondKey = currentProduct.productID;
+                        const firstKey = currentProduct.currentuser;
+
+                        console.log(firstKey);
+                        console.log(secondKey);
+
+
+                        const userProductDetails = data.filter(product => secondKey == product.id && firstKey === currentUser);
+                        console.log(userProductDetails);
+
+                        userProductDetails.forEach(product => {
+                            cart.push(product);
+                            ShowInCart(product);
+                        });
+
+
+                    }
+
 
                     calculateTotalPrice();
                 }
