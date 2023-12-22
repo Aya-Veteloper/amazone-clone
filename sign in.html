@@ -23,9 +23,9 @@ body{
     min-height: 100vh;
     background-color: rgb(255, 255, 255);
 }
-.img{
-    width: 204px;
-    height: 76px;
+img{
+    width: 160px;
+    height: 110px;
 }
 .login{
     width: 420px;
@@ -140,7 +140,7 @@ form small {
 </head>
 <body>
     <div class="login-container">
-<img src="images/amazonLogo.png"class="img" alt="">
+        <img src="images/logo3-removebg-preview.png" alt="">
 
         <div class="login">
         <form action="">
@@ -240,8 +240,9 @@ const formData = (ele) => {
     let usersdata = JSON.parse(localStorage.getItem("users"))
     for(let user of usersdata){
         if(user.email == email && user.password == password ){
-            window.location.href="index.html"
+            incorrectPassOrEmail.innerHTML=""
             localStorage.setItem("currentUser",user.fullName)
+            window.location.href="index.html"
            
         }
         else{

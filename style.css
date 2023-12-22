@@ -6,7 +6,6 @@
 
 body {
     margin: 0;
-    /* scroll-behavior: smooth; */
 }
 
 .header {
@@ -32,16 +31,16 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
 }
 
 .logo {
     width: 120px;
     height: 50px;
-    background: url('https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405936311_.png');
-    background-repeat: no-repeat;
-    background-position-y: -40px;
-    overflow: hidden;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
 }
 
 .border-white {
@@ -66,7 +65,7 @@ body {
 }
 
 .search-container:hover {
-    outline: 3px solid orange;
+    outline: 3px solid #f59a07;
 }
 
 .search-input {
@@ -75,16 +74,14 @@ body {
     border: none;
     outline: none;
     padding: 3px;
-    font-size: 1.1rem;
 }
 
 .search-icon {
     width: 50px;
-    background-color: rgb(235, 160, 94);
+    background-color: #f59a07;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
     color: #000;
     border: none;
 }
@@ -116,13 +113,12 @@ body {
 
 .account {
     font-weight: 900;
-    font-size: 1.1rem;
+   
 }
 
 
 /****cart container***/
 .cart-button {
-    font-size: 1.1rem;
     display: flex;
     background-color: rgb(19, 25, 33);
     color: white;
@@ -512,7 +508,7 @@ body {
     justify-content: center;
     background-color: #37475a;
     color: #fff;
-    font-size: 0.875rem;
+    font-size: 15px;
     font-weight: 600;
     height: 60px;
 }
@@ -533,6 +529,12 @@ body {
     margin: 20px 0 10px 0;
 }
 
+.footer-items img{
+    margin-top: 12%;
+    width: 230px;
+    height: 120px;
+}
+
 .footer-items ul {
     list-style: none;
     margin-bottom: 20px;
@@ -540,7 +542,7 @@ body {
 
 .footer-items li a {
     color: #ddd;
-    font-size: 0.875rem;
+    font-size: 15px;
 }
 
 .footer-items li:hover {
